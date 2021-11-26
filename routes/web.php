@@ -15,6 +15,9 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'as' => 'admin.'], function(){
-
+    #login
     Route::get('/', [AuthController::class, 'showLoginform'])->name('login');
+    Route::post('login', [AuthController::class, 'login'])->name('login.do');
+    #home
+    Route::get('/home', [AuthController::class, 'home'])->name('home');
 });

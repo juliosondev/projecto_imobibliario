@@ -11,4 +11,18 @@ class AuthController extends Controller
     {
         return view('admin.index');
     }
+    public function home()
+    {
+        # code...
+        return view('admin.dashboard');
+    }
+    public function login(Request $request)
+    {
+        # verificar sem tem um dado em branco
+        if(in_array('', $request->only('email', 'password'))):
+            $json['message'] = "Informe os dados para iniciar a sessão";
+            return response()->json($json);
+        endif;
+
+    }
 }
